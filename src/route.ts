@@ -9,12 +9,6 @@ export type Wave = [
   centerX: number,
   formation: Formation,
 ];
-export const enemyStats = {
-  drone: { hp: 2, score: 100, radius: 13, dropChance: 0.015, canShoot: true },
-  dart: { hp: 1, score: 150, radius: 12, dropChance: 0.015, canShoot: false },
-  turret: { hp: 12, score: 400, radius: 19, dropChance: 0.3, canShoot: true },
-  lancer: { hp: 4, score: 250, radius: 15, dropChance: 0.06, canShoot: true },
-};
 
 export interface Sector {
   name: string;
