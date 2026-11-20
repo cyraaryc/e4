@@ -48,7 +48,8 @@ export function getSpawn(wave) {
         y = 70 + Math.floor(i / 2) * 50;
         break;
     }
-    spawn.push([x, y, atDelay]);
+    const dir: 1 | -1 = i % 2 === 0 ? 1 : -1;
+    spawn.push([x, y, atDelay, dir]);
   }
   return spawn;
 }

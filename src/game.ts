@@ -16,6 +16,7 @@ import { loadSounds, play } from "./sounds.ts";
 import { makeTextures, TINTS } from "./textures.ts";
 import { Backdrop } from "./backdrop.ts";
 import { enemyStats, getSpawn, SECTORS, type Wave } from "./route.ts";
+import { dir } from "node:console";
 const TICK_MS = 1000 / 60;
 const START_LIVES = 3;
 const BOSS_WARNING_TICKS = 200;
@@ -423,7 +424,7 @@ export class GameScene extends Phaser.Scene implements Arena {
   private spawnWave(wave: Wave, t: number): void {
     const [, kind] = wave;
     const enemy = enemyStats[kind];
-    for (const [x, y, atDelay] of getSpawn(wave)) {
+    for (const [x, y, atDelay, dir] of getSpawn(wave)) {
       if (t !== atDelay) continue;
       this.enemies.push(
         new ShmupPrefabSprite(
@@ -438,7 +439,7 @@ export class GameScene extends Phaser.Scene implements Arena {
           enemy.canShoot,
           false,
           x,
-          x < WIDTH / 2 ? 1 : -1,
+          dir,
         ),
       );
     }
