@@ -16,7 +16,6 @@ import { loadSounds, play } from "./sounds.ts";
 import { makeTextures, TINTS } from "./textures.ts";
 import { Backdrop } from "./backdrop.ts";
 import { enemyStats, getSpawn, SECTORS, type Wave } from "./route.ts";
-import { dir } from "node:console";
 const TICK_MS = 1000 / 60;
 const START_LIVES = 3;
 const BOSS_WARNING_TICKS = 200;
